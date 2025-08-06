@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODEX-13 - SIGNAL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> 
+    <style>
+        /* Basic reset and body configuration */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            color: #C0A040;
+            background-color: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Background image style */
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.25;
+            z-index: -1;
+            filter: grayscale(100%);
+        }
+
+        /* Main content container */
+        .content {
+            z-index: 1;
+            padding: 20px;
+            max-width: 700px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Top text style (AN IDEA...) */
+        .top-text {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #C0A040;
+            line-height: 1.5;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Main logo style */
+        .logo {
+            width: 180px;
+            height: auto;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 0 10px rgba(192, 160, 64, 0.5));
+        }
+
+        /* Date text style (JULY 13, 2027...) */
+        .date-text {
+            font-size: 1.1em;
+            margin-bottom: 40px;
+            color: #C0A040;
+            font-weight: 400;
+        }
+
+        /* Countdown container - Framed and in a single line */
+        .countdown-container {
+            width: 100%;
+            border: 2px solid #C0A040;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 50px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            justify-items: center;
+            align-items: center;
+        }
+
+        /* Style for each countdown item (Days, Hours, etc.) */
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Countdown numbers style (simpler, thinner) */
+        .countdown-number {
+            font-size: 3em;
+            color: #C0A040;
+            font-weight: 300;
+            line-height: 1;
+            text-shadow: 0 0 8px rgba(192, 160, 64, 0.6);
+        }
+
+        /* Countdown labels style (DAYS, HOURS, etc.) */
+        .countdown-label {
+            font-size: 0.8em;
+            color: #C0A040;
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+
+        /* Whitepaper button style - Discreet, transparent, and ocre */
+        .whitepaper-button {
+            background-color: transparent;
+            color: #C0A040;
+            border: 2px solid #C0A040;
+            padding: 18px 40px;
+            font-size: 1.3em;
+            font-family: 'Open Sans', sans-serif;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+            font-weight: 600;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 40px; /* Added space below the Whitepaper button */
+        }
+
+        .whitepaper-button:hover {
+            background-color: rgba(192, 160, 64, 0.1);
+            color: #C0A040;
+            border-color: #C0A040;
+            transform: scale(1.02);
+        }
+
+        /* Social media icons container */
+        .social-media-container {
+            display: flex;
+            gap: 25px; /* Space between icons */
+            margin-top: 20px; /* Space above icons */
+            margin-bottom: 20px;
+        }
+
+        /* Individual social media icon style */
+        .social-icon {
+            color: #C0A040; /* Ocre/brown color for icons */
+            font-size: 2.2em; /* Icon size */
+            transition: color 0.3s ease, transform 0.3s ease;
+            text-decoration: none; /* Ensure no underline */
+            filter: drop-shadow(0 0 5px rgba(192, 160, 64, 0.4)); /* Luminous shadow */
+        }
+
+        .social-icon:hover {
+            color: #E0C060; /* Slightly lighter color on hover */
+            transform: scale(1.15); /* Zoom effect */
+        }
+
+
+        /* Media Queries for responsiveness on different screen sizes */
+        @media (max-width: 768px) {
+            .content {
+                max-width: 90%;
+            }
+            .top-text {
+                font-size: 1em;
+            }
+            .logo {
+                width: 150px;
+            }
+            .date-text {
+                font-size: 0.9em;
+            }
+            .countdown-number {
+                font-size: 2.5em;
+            }
+            .countdown-label {
+                font-size: 0.7em;
+            }
+            .countdown-container {
+                padding: 15px;
+                gap: 10px;
+            }
+            .whitepaper-button {
+                font-size: 1.1em;
+                padding: 15px 30px;
+            }
+            .social-icon {
+                font-size: 1.8em; /* Adjust icon size on smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .top-text {
+                font-size: 0.9em;
+            }
+            .logo {
+                width: 120px;
+            }
+            .date-text {
+                font-size: 0.8em;
+            }
+            .countdown-number {
+                font-size: 2em;
+            }
+            .countdown-label {
+                font-size: 0.6em;
+            }
+            .countdown-container {
+                padding: 10px;
+                gap: 5px;
+            }
+            .whitepaper-button {
+                font-size: 1em;
+                padding: 12px 25px;
+            }
+            .social-icon {
+                font-size: 1.5em; /* Adjust icon size on very small screens */
+            }
+            .social-media-container {
+                gap: 15px; /* Reduce space between icons on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="content">
+        <div class="top-text">
+            AN IDEA LAUNCHED INTO THE CODE...<br>
+            TO SEE WHO'S WATCHING.
+        </div>
+        <img src="aecb085d-087c-48ca-9b52-812f064d3c05.png" alt="CODEX 13 Logo" class="logo">
+        <div class="date-text">JULY 13, 2027 AT 7:13 AM SILICON VALLEY</div>
+        
+        <div class="countdown-container">
+            <div class="countdown-item">
+                <div class="countdown-number" id="days"></div>
+                <div class="countdown-label">DAYS</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours"></div>
+                <div class="countdown-label">HOURS</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes"></div>
+                <div class="countdown-label">MINUTES</div>
+            </div>
+            <div class="countdown-item" id="seconds-item">
+                <div class="countdown-number" id="seconds"></div>
+                <div class="countdown-label">SECONDS</div>
+            </div>
+        </div>
+
+        <a href="CODEX-13.pdf" download="CODEX-13 WHITEPAPER.pdf" class="whitepaper-button">WHITEPAPER</a>
+
+        <div class="social-media-container">
+            <a href="https://t.me/codex13_c13" target="_blank" class="social-icon" aria-label="Join our Telegram channel">
+                <i class="fab fa-telegram-plane"></i>
+            </a>
+            <a href="https://x.com/codex13_c13" target="_blank" class="social-icon" aria-label="Visit our X profile">
+                <i class="fab fa-x-twitter"></i> 
+            </a>
+            <a href="https://www.instagram.com/codex13_c13/" target="_blank" class="social-icon" aria-label="Follow us on Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@codex13_c13" target="_blank" class="social-icon" aria-label="Follow us on TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // The countdown end date MUST be July 13, 2027 at 07:13 AM, Silicon Valley time.
+        // Silicon Valley (PDT) is UTC-7 during daylight saving time.
+        // We convert 07:13 AM PDT to UTC: 07:13 + 7 hours = 14:13 UTC.
+        const targetDate = new Date("2027-07-13T14:13:00Z").getTime(); // UTC time for better accuracy
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                clearInterval(x);
+                // If the countdown ends, set all values to "0" and change the message
+                document.getElementById("days").innerHTML = "0";
+                document.getElementById("hours").innerHTML = "0";
+                document.getElementById("minutes").innerHTML = "0";
+                document.getElementById("seconds").innerHTML = "0";
+                document.querySelector('.date-text').innerHTML = "EXPERIMENT ENDED"; // Message when the experiment ends
+                return;
+            }
+
+            // Calculations for Days, Hours, Minutes, Seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Update HTML with calculated values
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+
+        }, 1000); // Updates every 1 second
+    </script>
+</body>
+</html>

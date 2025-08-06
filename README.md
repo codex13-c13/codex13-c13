@@ -1,8 +1,8 @@
-# CODEX 13
+# CODEX-13
 
 **"An idea launched into the code... to see who's watching."**
 
-CODEX 13 is not a typical cryptocurrency.  
+CODEX-13 is not a typical cryptocurrency.  
 It is a symbolic act disguised as a token. A countdown. A signal. A fracture in the system.
 
 ---
@@ -16,7 +16,7 @@ This project offers:
 
 Its purpose is to **exist**, **grow**, and **be seen**.
 
-If this reality is a simulation, **CODEX 13** is the first coordinated signal inside it — designed to be noticed from the outside.
+If this reality is a simulation, **CODEX-13** is the first coordinated signal inside it — designed to be noticed from the outside.
 
 ---
 
@@ -31,8 +31,8 @@ If this reality is a simulation, **CODEX 13** is the first coordinated signal in
 
 - `index.html` – The main landing page
 - `background.jpg` – The Guardian background image
-- `logo.png` – Transparent CODEX 13 logo
-- `CODEX 13.pdf` – The whitepaper in PDF format
+- `logo.png` – Transparent CODEX-13 logo
+- `CODEX-13.pdf` – The whitepaper in PDF format
 
 ---
 
@@ -46,7 +46,7 @@ If this reality is a simulation, **CODEX 13** is the first coordinated signal in
 
 ### 🧠 About
 
-CODEX 13 is a social experiment.  
+CODEX-13 is a social experiment.  
 A movement.  
 A whisper in the code.
 
